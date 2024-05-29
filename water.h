@@ -14,48 +14,61 @@
 #define WATER
 
 #include <iostream>
+#include <list>
+#include <vector>
 
 using namespace std;
 
 class PlantList{
 public:
+    PlantList(int cubeNum);
+    ~PlantList();
+
     void commandLine();
+    void help();
+    void scheduler();
+
+    void openCube(int cube);
+    void closeCube(int cube);
+
     void createPreset();
+    void deletePreset();
+    void clearPresets();
 
     void createPlant();
     void createPlantFromPreset();
     void deletePlant();
+    void clearPlants();
 
     void displayPlants();
+    void displayPresets();
 
     void swapPlants();
     void movePlant();
-    void changeNumCubes();
 
     void changeName();
-    void changeFeedAmount();
-    void changeFeedFreqeuency();
-    void changeFeedingList();
+    void changeWaterAmount();
+    void changeFrequency();
     void changeMoisture();
-    void changeFeedList();
+    void changeAdultWaterAmt();
+    
+    struct Plant{
+        int cubeNo;
+        string name;
+        float waterAmt;           //water per feeding (ml)
+        float frequency;          //days
+        float idealMoisture;    //ideal moisture level at feeding
+        int hoursTillFeed; 
+        int feedingsTillAdult;
+        float adultWaterAmt;
+    };
 
 private:
 
-    void storePreset();
     void storeState();
 
-    struct Plant{
-        string name;
-        int cubeNo;               
-        int waterAmt;           //water per feeding (ml)
-        int frequency;          //hours
-        float idealMoisture;    //ideal moisture level at feeding
-        int hoursSinceFeed; 
-        int feedingList[];      //array to schedule how much to be fed each week
-                                //if feed amounts need to change over time
-    };
-
-    Plant* plants;
+    list<string> presetNames;
+    vector<Plant> plants;
     int numCubes;
 };
 
