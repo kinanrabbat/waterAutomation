@@ -1,0 +1,29 @@
+This file details a rough roadmap for fixing the water automation system in the greenhouse. 
+
+Phase 0:
+    Gathering Materials:
+        - Strip all the cubes, wires and save the servos from the preexisting cubes
+        - Make sure raspberry pi is working (Kinan has the SIM card as of 9/23, make sure Kinan gave back the sim card)
+
+Phase 1: 
+    Getting Servos Working: 
+        - Understand the code, skim cubes.py to get a rough idea of how servos are controlled
+        - Test cubes.py on a single servo, tweak it to your liking
+        - Control opening/closing a single servo from the main program using the interface (tweak the scheduler function)
+        - Connect all servos via a bus to the RPI, get all of them to open/close in a sequence to test
+
+Phase 2:
+    Getting Cubes Working:
+        - Design and print new cubes that take wiring and placement in greenhouse into account
+        - Test open/close on a single cube
+        - Test whole system
+
+Phase 3: 
+    Getting Pump Working: 
+        - Make a circuit to drive the pump using input from the Raspberry Pi, test with oscilloscopes
+        - Take raspberry pi, driver circuit to greenhouse, test with pump
+
+Phase 4:
+    Wiring, Integration:
+        - Figure out how to do wiring 
+        - Connect everything
